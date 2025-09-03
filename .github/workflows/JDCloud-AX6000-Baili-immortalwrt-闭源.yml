@@ -27,7 +27,7 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-24.10
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: JDCloud-AX6000-Baili-immortalwrt/immbiyuan.config
+  CONFIG_FILE: JDCloud-AX6000-Baili-immortalwrt/imbiyuan.config
   DIY_P1_SH: JDCloud-AX6000-Baili-immortalwrt/diy-part1biyuan.sh
   DIY_P2_SH: JDCloud-AX6000-Baili-immortalwrt/diy-part2biyuan.sh
   SSH_ACTIONS: true
