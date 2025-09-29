@@ -50,5 +50,4 @@ rm -rf ./feeds/packages/net/mosdns
 # rm -rf ./feeds/luci/applications/luci-app-passwall2
 rm -rf ./feeds/luci/applications/luci-app-lucky
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
-
+git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
