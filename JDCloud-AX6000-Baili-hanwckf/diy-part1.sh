@@ -40,6 +40,7 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-
 # git clone https://github.com/gdy666/luci-app-lucky.git package/lucky
 git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
+git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/KFERMercer/luci-app-tcpdump.git package/luci-app-tcpdump
 git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
