@@ -101,16 +101,15 @@ jobs:
         sudo rm -rf /etc/apt/sources.list.d/* /usr/local/lib/android /opt/ghc /usr/share/dotnet /usr/local/graalvm /usr/local/.ghcup \
         /usr/local/share/powershell /usr/local/share/chromium /usr/local/lib/node_modules
         sudo timedatectl set-timezone "$TZ"
-
-        sudo mkdir -p /mnt/work
-        sudo chown $USER:$USER /mnt/work
-        sudo ln -s /mnt/work $GITHUB_WORKSPACE
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
         
     - name: 下载固件源码
-      working-directory: ./
+      working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone --depth=1 $REPO_URL -b $REPO_BRANCH openwrt
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         df -h  # 再次检查空间
         
         # GitHub Action 移除国内下载源
@@ -126,11 +125,11 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: 下载插件
-      run: cd openwrt && ./scripts/feeds update -a
-
-    - name: 读取插件
-      run: cd openwrt && ./scripts/feeds install -a
+    - name: 更新 & 安装 feeds
+      run: |
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
 
     - name: 加载config & DIY_P2_SH
       run: |
