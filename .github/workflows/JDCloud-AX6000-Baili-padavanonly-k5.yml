@@ -80,6 +80,13 @@ jobs:
         npm_clean: "True"
         os_swap: "True"
         
+    - name: Free Disk Space
+      run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /opt/hostedtoolcache/CodeQL
+        
     - name: After
       run: |
         df -H
